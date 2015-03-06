@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/android-downloadmanager/android-downloadmanager.iml" filepath="$PROJECT_DIR$/android-downloadmanager/android-downloadmanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-filechooser/android-filechooser.iml" filepath="$PROJECT_DIR$/android-filechooser/android-filechooser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androiddownloadmangerlib/androiddownloadmangerlib.iml" filepath="$PROJECT_DIR$/androiddownloadmangerlib/androiddownloadmangerlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ytd.iml" filepath="$PROJECT_DIR$/ytd.iml" />
+    </modules>
+  </component>
+</project>
+

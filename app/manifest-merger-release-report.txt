@@ -1,0 +1,265 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	package
+		ADDED from AndroidManifest.xml:3:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionName
+		ADDED from AndroidManifest.xml:6:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionCode
+		ADDED from AndroidManifest.xml:5:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:installLocation
+		ADDED from AndroidManifest.xml:4:5
+uses-sdk
+ADDED from AndroidManifest.xml:8:5
+MERGED from com.android.support:appcompat-v7:21.0.3:15:5
+MERGED from com.android.support:support-v4:21.0.3:15:5
+MERGED from ytd:android-filechooser:unspecified:7:5
+MERGED from com.android.support:appcompat-v7:21.0.3:15:5
+MERGED from com.android.support:support-v4:21.0.3:15:5
+MERGED from ytd:android-downloadmanager:unspecified:7:5
+MERGED from com.android.support:appcompat-v7:21.0.3:15:5
+MERGED from com.android.support:support-v4:21.0.3:15:5
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:10:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:9:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:12:5
+	android:name
+		ADDED from AndroidManifest.xml:12:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:13:5
+	android:name
+		ADDED from AndroidManifest.xml:13:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:14:5
+	android:name
+		ADDED from AndroidManifest.xml:14:22
+uses-permission#android.permission.VIBRATE
+ADDED from AndroidManifest.xml:15:5
+	android:name
+		ADDED from AndroidManifest.xml:15:22
+application
+ADDED from AndroidManifest.xml:17:5
+MERGED from com.android.support:appcompat-v7:21.0.3:16:5
+MERGED from com.android.support:support-v4:21.0.3:16:5
+MERGED from ytd:android-filechooser:unspecified:11:5
+MERGED from com.android.support:appcompat-v7:21.0.3:16:5
+MERGED from com.android.support:support-v4:21.0.3:16:5
+MERGED from ytd:android-downloadmanager:unspecified:11:5
+MERGED from com.android.support:appcompat-v7:21.0.3:16:5
+MERGED from com.android.support:support-v4:21.0.3:16:5
+	android:label
+		ADDED from AndroidManifest.xml:21:9
+	android:allowBackup
+		ADDED from AndroidManifest.xml:19:9
+	android:icon
+		ADDED from AndroidManifest.xml:20:9
+	android:name
+		ADDED from AndroidManifest.xml:18:9
+service#group.pals.android.lib.ui.filechooser.services.LocalFileProvider
+ADDED from AndroidManifest.xml:22:9
+	android:name
+		ADDED from AndroidManifest.xml:22:18
+activity#group.pals.android.lib.ui.filechooser.FileChooserActivity
+ADDED from AndroidManifest.xml:23:9
+	android:configChanges
+		ADDED from AndroidManifest.xml:25:13
+	android:exported
+		ADDED from AndroidManifest.xml:26:13
+	android:name
+		ADDED from AndroidManifest.xml:24:13
+activity#dentex.youtube.downloader.ShareActivity
+ADDED from AndroidManifest.xml:28:9
+	android:label
+		ADDED from AndroidManifest.xml:32:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:30:13
+	android:exported
+		ADDED from AndroidManifest.xml:31:13
+	android:name
+		ADDED from AndroidManifest.xml:29:13
+intent-filter#android.intent.action.SEND+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:33:13
+action#android.intent.action.SEND
+ADDED from AndroidManifest.xml:34:17
+	android:name
+		ADDED from AndroidManifest.xml:34:25
+category#android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:36:17
+	android:name
+		ADDED from AndroidManifest.xml:36:27
+data
+ADDED from AndroidManifest.xml:38:17
+	android:mimeType
+		ADDED from AndroidManifest.xml:38:23
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:40:13
+action#android.intent.action.VIEW
+ADDED from AndroidManifest.xml:41:17
+	android:name
+		ADDED from AndroidManifest.xml:41:25
+category#android.intent.category.BROWSABLE
+ADDED from AndroidManifest.xml:43:17
+	android:name
+		ADDED from AndroidManifest.xml:43:27
+activity#dentex.youtube.downloader.SettingsActivity
+ADDED from AndroidManifest.xml:81:9
+	android:label
+		ADDED from AndroidManifest.xml:84:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:83:13
+	android:name
+		ADDED from AndroidManifest.xml:82:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:85:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:86:17
+	android:name
+		ADDED from AndroidManifest.xml:86:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:88:17
+	android:name
+		ADDED from AndroidManifest.xml:88:27
+activity#dentex.youtube.downloader.menu.AboutActivity
+ADDED from AndroidManifest.xml:91:9
+	android:label
+		ADDED from AndroidManifest.xml:94:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:93:13
+	android:name
+		ADDED from AndroidManifest.xml:92:13
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:95:13
+	android:name
+		ADDED from AndroidManifest.xml:96:17
+	android:value
+		ADDED from AndroidManifest.xml:97:17
+activity#dentex.youtube.downloader.docs.GplShowActivity
+ADDED from AndroidManifest.xml:99:9
+	android:label
+		ADDED from AndroidManifest.xml:102:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:101:13
+	android:name
+		ADDED from AndroidManifest.xml:100:13
+activity#dentex.youtube.downloader.docs.LgplShowActivity
+ADDED from AndroidManifest.xml:107:9
+	android:label
+		ADDED from AndroidManifest.xml:110:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:109:13
+	android:name
+		ADDED from AndroidManifest.xml:108:13
+activity#dentex.youtube.downloader.docs.MitShowActivity
+ADDED from AndroidManifest.xml:115:9
+	android:label
+		ADDED from AndroidManifest.xml:118:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:117:13
+	android:name
+		ADDED from AndroidManifest.xml:116:13
+activity#dentex.youtube.downloader.docs.ApacheShowActivity
+ADDED from AndroidManifest.xml:123:9
+	android:label
+		ADDED from AndroidManifest.xml:126:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:125:13
+	android:name
+		ADDED from AndroidManifest.xml:124:13
+activity#dentex.youtube.downloader.docs.CcShowActivity
+ADDED from AndroidManifest.xml:131:9
+	android:label
+		ADDED from AndroidManifest.xml:134:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:133:13
+	android:name
+		ADDED from AndroidManifest.xml:132:13
+activity#dentex.youtube.downloader.docs.MplShowActivity
+ADDED from AndroidManifest.xml:139:9
+	android:label
+		ADDED from AndroidManifest.xml:142:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:141:13
+	android:name
+		ADDED from AndroidManifest.xml:140:13
+activity#dentex.youtube.downloader.docs.CreditsShowActivity
+ADDED from AndroidManifest.xml:147:9
+	android:label
+		ADDED from AndroidManifest.xml:150:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:149:13
+	android:name
+		ADDED from AndroidManifest.xml:148:13
+activity#dentex.youtube.downloader.docs.ChangelogActivity
+ADDED from AndroidManifest.xml:155:9
+	android:label
+		ADDED from AndroidManifest.xml:158:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:157:13
+	android:name
+		ADDED from AndroidManifest.xml:156:13
+activity#dentex.youtube.downloader.menu.DonateActivity
+ADDED from AndroidManifest.xml:163:9
+	android:label
+		ADDED from AndroidManifest.xml:166:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:165:13
+	android:name
+		ADDED from AndroidManifest.xml:164:13
+activity#dentex.youtube.downloader.menu.TutorialsActivity
+ADDED from AndroidManifest.xml:171:9
+	android:label
+		ADDED from AndroidManifest.xml:174:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:173:13
+	android:name
+		ADDED from AndroidManifest.xml:172:13
+activity#dentex.youtube.downloader.UpgradeApkActivity
+ADDED from AndroidManifest.xml:179:9
+	android:label
+		ADDED from AndroidManifest.xml:182:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:181:13
+	android:name
+		ADDED from AndroidManifest.xml:180:13
+service#dentex.youtube.downloader.service.AutoUpgradeApkService
+ADDED from AndroidManifest.xml:188:9
+	android:name
+		ADDED from AndroidManifest.xml:188:18
+service#dentex.youtube.downloader.service.FfmpegDownloadService
+ADDED from AndroidManifest.xml:189:9
+	android:name
+		ADDED from AndroidManifest.xml:189:18
+activity#dentex.youtube.downloader.docs.TranslatorsListActivity
+ADDED from AndroidManifest.xml:191:9
+	android:label
+		ADDED from AndroidManifest.xml:194:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:193:13
+	android:name
+		ADDED from AndroidManifest.xml:192:13
+activity#dentex.youtube.downloader.DashboardActivity
+ADDED from AndroidManifest.xml:199:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:202:13
+	android:label
+		ADDED from AndroidManifest.xml:204:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:203:13
+	android:exported
+		ADDED from AndroidManifest.xml:201:13
+	android:name
+		ADDED from AndroidManifest.xml:200:13
