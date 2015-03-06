@@ -210,17 +210,17 @@ public class AboutActivity extends Activity {
 	            }
 	        });
 	        
-	        hg = (Preference) findPreference("ytd_code_hg");
-	        hg.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-	        	
-	            public boolean onPreferenceClick(Preference preference) {
-	            	String url = "https://sourceforge.net/projects/ytdownloader/";
-	            	Intent i = new Intent(Intent.ACTION_VIEW);
-	            	i.setData(Uri.parse(url));
-	            	startActivity(i);
-	            	return true;
-	            }
-	        });
+//	        hg = (Preference) findPreference("ytd_code_hg");
+//	        hg.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+//
+//	            public boolean onPreferenceClick(Preference preference) {
+//	            	String url = "https://sourceforge.net/projects/ytdownloader/";
+//	            	Intent i = new Intent(Intent.ACTION_VIEW);
+//	            	i.setData(Uri.parse(url));
+//	            	startActivity(i);
+//	            	return true;
+//	            }
+//	        });
 	        
 	        share = (Preference) findPreference("share");
 	        share.setOnPreferenceClickListener(new OnPreferenceClickListener() {

@@ -57,10 +57,10 @@
 	            android:title="@string/ytd_code_git_title"
 	            android:summary="@string/ytd_code_git_summary"/>
 	        
-	        <Preference 
-	            android:key="ytd_code_hg"
-	            android:title="@string/ytd_code_hg_title"
-	            android:summary="@string/ytd_code_hg_summary"/>
+	        <!--<Preference -->
+	            <!--android:key="ytd_code_hg"-->
+	            <!--android:title="@string/ytd_code_hg_title"-->
+	            <!--android:summary="@string/ytd_code_hg_summary"/>-->
 	        
 	    </PreferenceScreen>
 		

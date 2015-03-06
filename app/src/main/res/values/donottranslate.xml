@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="changelog">
+        \n v3.1.0 - Mar 06 2015
+        \n[x] update to work with youtu.be urls
+        \n[x] ffmpeg binary included in the app
+        \n[x] ignore some spaces in youtube\n
+            response
+        \n
+        \n  Forked to https://github.com/gowthamgowtham/ytd
+        \n
+        \n-----------------------------------
         \n v3.0.2 - Oct 11 2013
         \n-----------------------------------
         \n[x] small fix
@@ -400,8 +409,8 @@
         If a copy of the MPL was not distributed with this file, You can obtain one at 
         <http>http://mozilla.org/MPL/2.0</http>.</string>
 		
-    <string name="ytd_code_git_summary">https://github.com/dentex/ytdownloader/</string>
-    <string name="ytd_code_hg_summary">https://sourceforge.net/projects/ytdownloader/</string>
+    <string name="ytd_code_git_summary">https://github.com/gowthamgowtham/ytd</string>
+    <!--<string name="ytd_code_hg_summary">https://sourceforge.net/projects/ytdownloader/</string>-->
     
     <string name="credits_text">
         \tMain Licenses
