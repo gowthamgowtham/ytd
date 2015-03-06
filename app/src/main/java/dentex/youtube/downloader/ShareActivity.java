@@ -401,11 +401,12 @@ public class ShareActivity extends Activity {
     }
     
     private String linkValidator(String sharedText) {
-    	Pattern pattern = Pattern.compile("(http://|https://).*(v=.{11}).*");
+    	Pattern pattern = Pattern.compile("(https?://)youtu.be/(.{11}).*");
         Matcher matcher = pattern.matcher(sharedText);
         if (matcher.find()) {
-            validatedLink = matcher.group(1) + "www.youtube.com/watch?" + matcher.group(2);
-            videoId = matcher.group(2).replace("v=", "");
+            String protocol = matcher.group(1);
+            videoId = matcher.group(2);
+            validatedLink = protocol + "www.youtube.com/watch?v=" + matcher.group(2);
             return validatedLink;
         }
         return "bad_link";
@@ -1053,7 +1054,7 @@ public class ShareActivity extends Activity {
         	return "login_required";
         }
 
-        Pattern streamsPattern = Pattern.compile("url_encoded_fmt_stream_map\\\": \\\"(.*?)\\\"");
+        Pattern streamsPattern = Pattern.compile("url_encoded_fmt_stream_map\\s*\\\"\\s*:\\s*\\\"(.*?)\\\"");
         Matcher streamsMatcher = streamsPattern.matcher(content);
         if (streamsMatcher.find()) {
         	Pattern blockPattern = Pattern.compile(",");
