@@ -31,7 +31,10 @@ import group.pals.android.lib.ui.filechooser.io.localfile.LocalFile;
 import group.pals.android.lib.ui.filechooser.services.IFileProvider;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Stack;
 
@@ -69,7 +72,6 @@ import dentex.youtube.downloader.menu.AboutActivity;
 import dentex.youtube.downloader.menu.DonateActivity;
 import dentex.youtube.downloader.menu.TutorialsActivity;
 import dentex.youtube.downloader.service.AutoUpgradeApkService;
-import dentex.youtube.downloader.service.FfmpegDownloadService;
 import dentex.youtube.downloader.utils.Json;
 import dentex.youtube.downloader.utils.PopUps;
 import dentex.youtube.downloader.utils.Utils;
@@ -305,63 +307,14 @@ public class SettingsActivity extends Activity {
 				
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 					boolean audioExtrEnabled = YTD.settings.getBoolean("enable_advanced_features", false);
-					boolean ffmpegInstalled = new File(dstDir, "ffmpeg").exists();
+					boolean ffmpegInstalled = dstFile.exists();
 					if (!audioExtrEnabled) {
 						cpuVers = armCpuVersion();
 						boolean isCpuSupported = (cpuVers > 0) ? true : false;
 						Utils.logger("d", "isCpuSupported: " + isCpuSupported, DEBUG_TAG);
-						
-						if (!isCpuSupported) {
-							advanced.setEnabled(false);
-							advanced.setChecked(false);
-							YTD.settings.edit().putBoolean("FFMPEG_SUPPORTED", false).commit();
 
-							AlertDialog.Builder adb = new AlertDialog.Builder(boxThemeContextWrapper);
-	                        adb.setIcon(android.R.drawable.ic_dialog_alert);
-	                        adb.setTitle(getString(R.string.ffmpeg_device_not_supported));
-	                        adb.setMessage(getString(R.string.ffmpeg_support_mail));
-	                        
-	                        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-	                        	
-	                            public void onClick(DialogInterface dialog, int which) {
-	                            	/*
-	                            	 * adapted form same source as createEmailOnlyChooserIntent below
-	                            	 */
-	                            	Intent i = new Intent(Intent.ACTION_SEND);
-	                                i.setType("*/*");
-	                                
-	                                String content = Utils.getCpuInfo();
-	                                /*File destDir = getActivity().getExternalFilesDir(null); 
-	                                String filename = "cpuInfo.txt";
-	                                try {
-										Utils.createLogFile(destDir, filename, content);
-										i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(destDir, filename)));*/
-		                                i.putExtra(Intent.EXTRA_EMAIL, new String[] { "samuele.rini76@gmail.com" });
-		                                i.putExtra(Intent.EXTRA_SUBJECT, "YTD: device info report");
-		                                i.putExtra(Intent.EXTRA_TEXT, content);
+                        YTD.settings.edit().putBoolean("FFMPEG_SUPPORTED", isCpuSupported).commit();
 
-		                                startActivity(createEmailOnlyChooserIntent(i, getString(R.string.email_via)));
-									/*} catch (IOException e) {
-										Log.e(DEBUG_TAG, "IOException on creating cpuInfo Log file ", e);
-									}*/
-	                            }
-	                        });
-	                        
-	                        adb.setNegativeButton(getString(R.string.dialogs_negative), new DialogInterface.OnClickListener() {
-	                        	
-	                        	public void onClick(DialogInterface dialog, int which) {
-	                            	// cancel
-	                            }
-	                        });
-	
-	                        AlertDialog helpDialog = adb.create();
-	                        if (! (getActivity()).isFinishing()) {
-	                        	helpDialog.show();
-	                        }	                            
-						} else {
-							YTD.settings.edit().putBoolean("FFMPEG_SUPPORTED", true).commit();
-						}
-						
 						Utils.logger("d", "ffmpegInstalled: " + ffmpegInstalled, DEBUG_TAG);
 					
 						if (!ffmpegInstalled && isCpuSupported) {	
@@ -369,19 +322,7 @@ public class SettingsActivity extends Activity {
 	                        adb.setIcon(android.R.drawable.ic_dialog_info);
 	                        adb.setTitle(getString(R.string.ffmpeg_download_dialog_title));
 	                        
-	                        link = getString(R.string.ffmpeg_download_dialog_msg_link, cpuVers);
-	                        String msg = getString(R.string.ffmpeg_download_dialog_msg);
-	                        
-	                        String ffmpegSize;
-	                        if (cpuVers == 5) {
-	                        	ffmpegSize = getString(R.string.ffmpeg_size_arm5);
-	                        } else if (cpuVers == 7) {
-	                        	ffmpegSize = getString(R.string.ffmpeg_size_arm7);
-	                        } else {
-	                        	ffmpegSize = "n.a.";
-	                        }
-	                        String size = getString(R.string.size) + " " + ffmpegSize;
-	                        adb.setMessage(msg + " " + link + "\n" + size);                      
+	                        adb.setMessage("Ffmpeg binary needs to be extracted. Size 15 MB");
 
 	                        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	
@@ -389,15 +330,10 @@ public class SettingsActivity extends Activity {
 	                            	
 	                            	File sdcardAppDir = getActivity().getExternalFilesDir(null);
 	                            	if (sdcardAppDir != null) {
-	                            		if (!srcFile.exists()) {
-			                            	Intent intent = new Intent(getActivity(), FfmpegDownloadService.class);
-			                            	intent.putExtra("CPU", cpuVers);
-			                            	intent.putExtra("DIR", sdcardAppDir.getAbsolutePath());
-			                            	getActivity().startService(intent);
-	                            			//downloadFfmpeg();
-	                            		} else {
-	                            			copyFfmpegToAppDataDir(getActivity(), srcFile, dstFile);
-	                            		}
+	                            		if (!srcFile.exists())
+                                            extractFfmpeg(srcFile);
+                                        copyFfmpegToAppDataDir(getActivity(), srcFile, dstFile);
+                                        srcFile.delete(); // Delete temporary file
 	                            	} else {
 	                            		Utils.logger("w", getString(R.string.unable_save_dialog_msg), DEBUG_TAG);
 	                            		PopUps.showPopUp(getString(R.string.error), getString(R.string.unable_save_dialog_msg), "alert", getActivity());
@@ -426,7 +362,37 @@ public class SettingsActivity extends Activity {
 				}
 			});
 		}
-        
+
+        /** Extracts ffmpeg binary from apk and creates an executable file
+         *
+         * @param destFile
+         */
+        private void extractFfmpeg(File destFile) {
+            InputStream is = null;
+            OutputStream os = null;
+
+            byte[] buffer = new byte[8 * 1024];
+
+            try {
+                is = getResources().getAssets().open("bin/ffmpeg");
+                os = new FileOutputStream(destFile);
+                int bytesRead;
+                while ((bytesRead = is.read(buffer)) != -1) {
+                    os.write(buffer, 0, bytesRead);
+                }
+            } catch (IOException ioe) {
+                // TODO: Error
+            }
+            finally {
+                if(is != null)
+                    try { is.close(); } catch (IOException ioe) { }
+                if(os != null)
+                    try { os.close(); } catch (IOException ioe) { }
+            }
+
+            // ffmpeg should be executable
+            destFile.setExecutable(true);
+        }
         /*private void downloadFfmpeg() {
     		String link = getString(R.string.ffmpeg_download_dialog_msg_link_bitbucket, cpuVers);
     		Utils.logger("d", "FFmpeg download link: " + link, DEBUG_TAG);
@@ -738,4 +704,6 @@ public class SettingsActivity extends Activity {
 	        }
 		}
 	}
+
+
 }
