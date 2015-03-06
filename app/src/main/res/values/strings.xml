@@ -164,12 +164,12 @@
     <string-array name="dashboard_click_entries">
         <item>Open</item>
         <item>Extract audio only</item>
-        <item>Extract and encode audio to mp3</item>
+        <!--<item>Extract and encode audio to mp3</item>-->
     </string-array>
 
     <string-array name="dashboard_click_entries_audio">
         <item>Open</item>
-        <item>Encode to mp3</item>
+        <!--<item>Encode to mp3</item>-->
     </string-array>
 
     <string-array name="dashboard_click_entries_imported">
