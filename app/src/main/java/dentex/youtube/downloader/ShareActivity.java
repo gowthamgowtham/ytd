@@ -401,12 +401,12 @@ public class ShareActivity extends Activity {
     }
     
     private String linkValidator(String sharedText) {
-    	Pattern pattern = Pattern.compile("(https?://)youtu.be/(.{11}).*");
+    	Pattern pattern = Pattern.compile("(https?://(?:www\\.)?)youtu.be/(.{11}).*");
         Matcher matcher = pattern.matcher(sharedText);
         if (matcher.find()) {
             String protocol = matcher.group(1);
             videoId = matcher.group(2);
-            validatedLink = protocol + "www.youtube.com/watch?v=" + matcher.group(2);
+            validatedLink = protocol + "youtube.com/watch?v=" + matcher.group(2);
             return validatedLink;
         }
         return "bad_link";

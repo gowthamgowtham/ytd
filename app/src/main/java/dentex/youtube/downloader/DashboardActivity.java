@@ -882,7 +882,7 @@ public class DashboardActivity extends Activity{
 	}
 	
 	private void reDownload(DashboardListItem currentItem, String category) {
-		String ytLink = "http://www.youtube.com/watch?v=" + currentItem.getYtId();
+		String ytLink = "http://www.youtu.be/" + currentItem.getYtId();
 		Intent rdIntent = new Intent(this, ShareActivity.class);
 		rdIntent.setData(Uri.parse(ytLink));
 		rdIntent.addCategory(category);
