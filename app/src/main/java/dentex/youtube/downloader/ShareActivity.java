@@ -409,6 +409,9 @@ public class ShareActivity extends Activity {
             validatedLink = protocol + "youtube.com/watch?v=" + matcher.group(2);
             return validatedLink;
         }
+		else if(sharedText.trim().length() == 11) {
+			return "http://www.youtube.com/watch?v=" + sharedText;
+		}
         return "bad_link";
     }
     

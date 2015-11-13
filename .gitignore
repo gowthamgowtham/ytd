@@ -25,3 +25,7 @@ proguard/
 *.log
 
 .idea/workspace.xml
+
+# http://stackoverflow.com/a/17803964/252489
+.idea/libraries
+.DS_Store

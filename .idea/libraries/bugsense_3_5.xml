@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="bugsense-3.5">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android-filechooser/libs/bugsense-3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/libs/bugsense-3.5.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
